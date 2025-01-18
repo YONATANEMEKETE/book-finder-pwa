@@ -7,7 +7,9 @@ interface Props {
 
 const Wrapper = ({ children, className }: Props) => {
   return (
-    <div className={cn('max-w-[900px] mx-auto', className)}>{children}</div>
+    <div className={cn('max-w-[900px] mx-2 min-[900px]:mx-auto', className)}>
+      {children}
+    </div>
   );
 };
 

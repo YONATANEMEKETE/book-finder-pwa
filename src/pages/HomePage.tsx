@@ -4,7 +4,7 @@ import Wrapper from '@/components/Wrapper';
 
 const HomePage = () => {
   return (
-    <Wrapper className="min-h-screen py-20 flex flex-col gap-10">
+    <Wrapper className="min-h-screen py-20 flex flex-col gap-10 items-center">
       <SearchBar />
       <BooksList />
     </Wrapper>

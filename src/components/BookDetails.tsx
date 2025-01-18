@@ -1,7 +1,11 @@
+import { useNavigate } from 'react-router-dom';
+
 const BookDetails = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex items-center justify-center gap-x-6">
-      <div className="grow place-content-center grid">
+      <div className="grow place-content-center hidden sm:grid">
         <img
           src={'https://covers.openlibrary.org/b/id/12539702-L.jpg'}
           alt="cover"
@@ -44,6 +48,12 @@ const BookDetails = () => {
           <div className="border px-2 py-1 bg-white rounded-full min-w-24 grid place-content-center text-xs text-black font-mono font-semibold">
             Artist
           </div>
+        </div>
+        <div
+          onClick={() => navigate('/')}
+          className="border px-2 py-1 bg-white rounded-full min-w-24 grid place-content-center text-xs text-black font-mono font-semibold cursor-pointer"
+        >
+          Back to Home
         </div>
       </div>
     </div>

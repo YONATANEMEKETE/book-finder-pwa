@@ -6,7 +6,7 @@ const BookCard = () => {
   return (
     <div
       onClick={() => navigate('/details')}
-      className="border w-[430px] h-[150px] rounded-lg flex gap-x-2 overflow-clip cursor-pointer  hover:shadow-xl transition-all duration-300 bg-white"
+      className="border w-[430px]  h-[150px] rounded-lg flex gap-x-2 overflow-clip cursor-pointer  hover:shadow-xl transition-all duration-300 bg-white"
     >
       <img
         src={'https://covers.openlibrary.org/b/id/12539702-L.jpg'}
