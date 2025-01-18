@@ -1,6 +1,11 @@
+import SearchBar from '@/components/SearchBar';
+import Wrapper from '@/components/Wrapper';
+
 const HomePage = () => {
   return (
-    <div className="h-screen w-full grid place-content-center">HomePage</div>
+    <Wrapper className="min-h-screen pt-20">
+      <SearchBar />
+    </Wrapper>
   );
 };
 
