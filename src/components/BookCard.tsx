@@ -1,6 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 
-const BookCard = () => {
+type Props = {
+  title: string;
+  author: string;
+  rating: number;
+  cover: number;
+};
+
+const BookCard = ({ title, author, rating }: Props) => {
   const navigate = useNavigate();
 
   return (
@@ -16,13 +23,15 @@ const BookCard = () => {
       <div className="grow p-2 flex flex-col justify-between">
         <div className="">
           <h2 className="text-black text-lg font-semibold font-mono max-w-[240px] truncate">
-            Steal Like an Artist
+            {title}
           </h2>
           <p className="text-sm text-black/40 font-semibold font-sans">
-            by Austin Kleon
+            by {author}
           </p>
         </div>
-        <p className="text-sm text-black/30 font-medium font-sans">4.5(560)</p>
+        <p className="text-sm text-black/30 font-medium font-sans">
+          {rating}(560)
+        </p>
       </div>
     </div>
   );
