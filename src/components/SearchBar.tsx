@@ -1,11 +1,24 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Button } from './ui/button';
+import { useSetAtom } from 'jotai';
+import booksListAtom from '@/states/globalStates';
 
 const SearchBar = () => {
   const [title, setTitle] = useState('');
+  const setBooks = useSetAtom(booksListAtom);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    try {
+      const response = await fetch(
+        `https://openlibrary.org/search.json?title=${title}&limit=10`
+      );
+      const data = await response.json();
+      setBooks(data.docs);
+      console.log(data.docs);
+    } catch (err) {
+      console.log('error fetching the data', err);
+    }
     setTitle('');
   };
 

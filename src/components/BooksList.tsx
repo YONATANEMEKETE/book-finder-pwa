@@ -31,12 +31,18 @@ const BooksList = () => {
 
   return (
     <div className="w-fit mx-auto grid grid-cols-1 min-[880px]:grid-cols-2 items-center gap-4">
+      {books.length < 3 && <p className="text-center">No books found</p>}
       {books?.map((book, index) => {
+        const authorName =
+          typeof book.author_name === 'string'
+            ? book.author_name
+            : book.author_name[0];
+
         return (
           <BookCard
             key={index}
             title={book.title}
-            author={book.author_name}
+            author={authorName}
             rating={book.ratings_average}
             cover={book.cover_i}
             ratingNumber={book.ratings_count}
