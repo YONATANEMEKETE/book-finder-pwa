@@ -5,21 +5,25 @@ type Props = {
   author: string;
   rating: number;
   cover: number;
+  ratingNumber: number;
+  keyId: string;
 };
 
-const BookCard = ({ title, author, rating }: Props) => {
+const BookCard = ({ title, author, rating, cover, ratingNumber }: Props) => {
   const navigate = useNavigate();
+
+  const roundedRating = rating?.toFixed(1);
+
+  const imageUrl =
+    `https://covers.openlibrary.org/b/id/${cover}-L.jpg` ||
+    `https://covers.openlibrary.org/b/id/8226191-L.jpg`;
 
   return (
     <div
-      onClick={() => navigate('/details')}
+      onClick={() => navigate(`/details/${cover}`)}
       className="border w-[430px]  h-[150px] rounded-lg flex gap-x-2 overflow-clip cursor-pointer  hover:shadow-xl transition-all duration-300 bg-white"
     >
-      <img
-        src={'https://covers.openlibrary.org/b/id/12539702-L.jpg'}
-        alt="cover"
-        className="w-[25%] h-full object-cover"
-      />
+      <img src={imageUrl} alt="cover" className="w-[25%] h-full object-cover" />
       <div className="grow p-2 flex flex-col justify-between">
         <div className="">
           <h2 className="text-black text-lg font-semibold font-mono max-w-[240px] truncate">
@@ -29,9 +33,11 @@ const BookCard = ({ title, author, rating }: Props) => {
             by {author}
           </p>
         </div>
-        <p className="text-sm text-black/30 font-medium font-sans">
-          {rating}(560)
-        </p>
+        {roundedRating && (
+          <p className="text-sm text-black/30 font-medium font-sans">
+            {roundedRating}({ratingNumber})
+          </p>
+        )}
       </div>
     </div>
   );

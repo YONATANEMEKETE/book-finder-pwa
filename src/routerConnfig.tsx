@@ -10,7 +10,8 @@ const ROUTER = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<HomePage />} />
-      <Route path="/details" element={<DetailPage />} />
+      {/* make it dynamic */}
+      <Route path="/details/:id" element={<DetailPage />} />
     </Route>
   )
 );
