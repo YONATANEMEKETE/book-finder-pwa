@@ -1,6 +1,6 @@
 const fetchBook = async (url?: string) => {
   const endpoint: string =
-    url || 'https://openlibrary.org/search.json?q=productivity&limit=10';
+    url || 'https://openlibrary.org/search.json?q=popular+books&limit=10';
 
   try {
     const respose = await fetch(endpoint);

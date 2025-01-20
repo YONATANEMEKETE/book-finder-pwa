@@ -36,7 +36,7 @@ const BooksList = () => {
         const authorName =
           typeof book.author_name === 'string'
             ? book.author_name
-            : book.author_name[0];
+            : book.author_name;
 
         return (
           <BookCard
