@@ -38,6 +38,8 @@
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5",
     "vite-plugin-pwa": "^0.21.1",
-    "workbox-cli": "^7.3.0"
+    "workbox-cli": "^7.3.0",
+    "workbox-core": "^7.3.0",
+    "workbox-precaching": "^7.3.0"
   }
 }
