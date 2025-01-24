@@ -1,11 +1,23 @@
-import { cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching';
-import { clientsClaim } from 'workbox-core';
+import {
+  skipWaiting,
+  clientsClaim,
+  setCacheNameDetails,
+  cacheNames,
+} from 'workbox-core';
+import { logger } from 'workbox-core/_private';
 
-declare let self: ServiceWorkerGlobalScope; // we need to define self scope
+skipWaiting(); // force activation
+clientsClaim(); // force control of the open pages
 
-// self.skipWaiting();
-clientsClaim();
+setCacheNameDetails({
+  // configure cache names for our app
+  prefix: 'book-finder',
+  suffix: 'v1',
+  precache: 'precache',
+  runtime: 'runtime',
+  googleAnalytics: 'google-analytics',
+});
 
-cleanupOutdatedCaches(); // to clean up old caches when new version is installed
+console.log(cacheNames.precache); // access the cache for the app we are working on currently
 
-precacheAndRoute(self.__WB_MANIFEST);
+logger.debug('all assets are cached'); // help us debug our app

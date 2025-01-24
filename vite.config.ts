@@ -16,6 +16,7 @@ export default defineConfig({
       strategies: 'injectManifest',
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        swDest: 'dist/sw.js', // the location of service worker after we deployed it or built it.
       },
       srcDir: 'src',
       filename: 'sw.ts',
